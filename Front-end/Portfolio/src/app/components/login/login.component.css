@@ -1,0 +1,36 @@
+.login__container{
+    height: 70vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(5, 7, 12, .7);
+    margin: 60px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 10px rgb(85, 17, 17);
+}
+
+input{
+    color: #fff;
+    background-color: rgb(85, 17, 17, .7);
+    text-align: center;
+    border-style: none;
+    border-radius: 20px;
+    height: 7vh;
+    width: 20vw;
+    border: 2px solid #000;
+}
+
+button{
+    color: #fff;
+    background-color: rgb(85, 17, 17, .7);
+    text-align: center;
+    border-style: none;
+    border-radius: 20px;
+    height: 7vh;
+    width: 20vw;
+    border: 2px solid #000;
+}
