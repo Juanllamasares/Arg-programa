@@ -1,0 +1,53 @@
+.header__container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: space-between;
+    background-color: rgb(85, 17, 17);
+    align-items: center;
+    color: #fff;
+        box-shadow: 0 0 10px 10px rgb(85, 17, 17);
+}
+
+.redes__container{
+    margin-right: 40px;
+}
+
+.img__redes{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    padding: 10px;
+}
+
+.img__logo{
+    width: 200px;
+    height: 100px;
+    margin-left: 20px;
+}
+
+.banner__container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 100vw;
+    color: #fff;
+    text-shadow: 5px 5px 5px rgb(85, 17, 17);
+
+}
+.banner__title{
+    margin: 10px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 800px){
+    .header__container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}

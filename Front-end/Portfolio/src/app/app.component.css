@@ -1,0 +1,6 @@
+.container__all{
+    background: linear-gradient(rgba(5,7,12,.5),rgba(5,7,12,.5)),url(../assets/img_banner.jpg) no-repeat center center fixed;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100vw;
+}
