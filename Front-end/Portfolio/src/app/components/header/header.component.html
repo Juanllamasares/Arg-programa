@@ -4,8 +4,10 @@
     <div class="redes__container">
         <a href="https://github.com/Juanllamasares" target="_blank"><img src=".../../../../../assets/img/github.png" alt="github-logo" class="img__redes"></a>
         <a href="https://www.linkedin.com/in/juan-l-46688b206/" target="_blank"><img src="../../../assets/img/linkedin.png" alt="linkedin-logo" class="img__redes"></a>
+        <a href="/login" (click)="login()" *ngIf="!isLogged"><img src="../../../assets/img/programador.png" alt="login" class="img__redes"></a>
+        <a href="" (click)="onLogOut()" *ngIf="isLogged"><img src="../../../assets/img/cerrar-sesion.png" alt="login" class="img__redes"></a>
     </div>
 </div>
 <div class="banner__container">
-    <h2 class="banner__title">Juan Llamasares Desarrollador Full-Stack Jr</h2>
+    <h2 class="banner__title">{{Persona.nombre}} {{Persona.apellido}} {{Persona.profesion}}</h2>
 </div>

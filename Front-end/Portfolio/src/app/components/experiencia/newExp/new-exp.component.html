@@ -1,0 +1,7 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="onCreate()" noValidate>
+        <input type="text" placeholder="Titulo" id="tituloExp" name="tituloExp" [(ngModel)]="tituloExp" required>
+        <textarea placeholder="Descripción" id="descripcionExp" name="descripcionExp" [(ngModel)]="descripcionExp" required></textarea>
+        <button type="submit">Agregar</button>
+    </form>
+</div>

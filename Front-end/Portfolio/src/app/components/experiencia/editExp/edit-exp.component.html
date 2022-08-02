@@ -1,0 +1,7 @@
+<div class="container" *ngIf="experiencia">
+    <form #f="ngForm" (ngSubmit)="onUpdate()" noValidate>
+        <input type="text" placeholder="Titulo" id="tituloExp" name="tituloExp" [(ngModel)]="experiencia.tituloExp" required>
+        <textarea placeholder="Descripción" id="descripcionExp" name="descripcionExp" [(ngModel)]="experiencia.descripcionExp" required></textarea>
+        <button type="submit">Actualizar</button>
+    </form>
+</div>

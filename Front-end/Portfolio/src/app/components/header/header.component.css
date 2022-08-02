@@ -1,12 +1,16 @@
 .header__container{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
-    flex-wrap: wrap;
-    width: 100vw;
     justify-content: space-between;
-    background-color: rgb(85, 17, 17);
     align-items: center;
+    text-align: center;
     color: #fff;
-        box-shadow: 0 0 10px 10px rgb(85, 17, 17);
+    background-color: rgba(5, 7, 12, .7);
+    border-radius: 30px;
+    box-shadow: 0 0 10px 10px rgb(85, 17, 17);
+    width: 90vw;
 }
 
 .redes__container{
@@ -43,7 +47,7 @@
     text-align: center;
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 1000px){
     .header__container{
         flex-direction: column;
         align-items: center;

@@ -8,13 +8,17 @@ import com.portfolio.jell.interfaz.IPersonaService;
 import com.portfolio.jell.model.Persona;
 import com.portfolio.jell.repository.IPersonaRepository;
 import java.util.List;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Llamasares
  */
-public class ImpPersonaService implements IPersonaService{
+@Service
+@Transactional
+public class PersonaService implements IPersonaService{
     @Autowired
     IPersonaRepository iPersonaRepo;
     

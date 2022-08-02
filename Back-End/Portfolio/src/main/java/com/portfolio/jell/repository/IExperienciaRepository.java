@@ -4,7 +4,8 @@
  */
 package com.portfolio.jell.repository;
 
-import com.portfolio.jell.model.Persona;
+import com.portfolio.jell.model.Experiencia;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
  * @author Llamasares
  */
 @Repository
-public interface IPersonaRepository extends JpaRepository<Persona, Long>{
-    
+public interface IExperienciaRepository extends JpaRepository<Experiencia, Integer>{
+    public Optional<Experiencia> findByTituloExp(String tituloExp);
+    public boolean existsByTituloExp(String tituloExp);
 }

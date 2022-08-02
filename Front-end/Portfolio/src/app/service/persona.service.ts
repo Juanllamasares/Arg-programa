@@ -6,6 +6,7 @@ import { Persona } from '../models/persona'
 @Injectable({
   providedIn: 'root'
 })
+
 export class PersonaService {
 
   URL = `http://localhost:8080/personas/`;
@@ -13,6 +14,6 @@ export class PersonaService {
   constructor(private http : HttpClient) {}
 
   public getPersona():Observable<Persona>{
-    return this.http.get<Persona>(this.URL + 'traer/perfil');
+    return this.http.get<Persona>(this.URL + 'traer/2');
   }
 }
