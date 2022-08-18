@@ -1,7 +1,19 @@
+<div class="banner__container">
+    <img routerLink="/editAcercaDe/{{persona.id}}" class="img-action" src="../../../assets/img/editar.png" alt="editar" *ngIf="isLogged">
+  <h2 class="banner__title">
+    {{ persona.nombre }} {{ persona.apellido }} {{ persona.profesion }}
+  </h2>
+</div>
 <figure class="foto__container">
-    <img src="../../../assets/img/mi_foto.png" alt="JuanLlamasares-foto" class="mi__foto">
+  <img
+    src={{persona.img}}
+    alt="foto"
+    class="mi__foto"
+  />
 </figure>
 <div class="acerca__container">
-    <h2 class="acerca__title">Acerca de:</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laboriosam tenetur doloribus aliquid accusantium sequi aperiam amet illum, totam inventore unde, illo, numquam maxime autem suscipit architecto non cumque modi!</p>
+  <h2 class="acerca__title">Acerca de:</h2>
+  <p>
+    {{persona.descripcion}}
+  </p>
 </div>

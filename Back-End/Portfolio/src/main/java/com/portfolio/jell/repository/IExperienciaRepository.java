@@ -4,7 +4,7 @@
  */
 package com.portfolio.jell.repository;
 
-import com.portfolio.jell.model.Experiencia;
+import com.portfolio.jell.entity.Experiencia;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

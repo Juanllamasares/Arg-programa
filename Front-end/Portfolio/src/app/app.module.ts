@@ -16,7 +16,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NewExpComponent } from './components/experiencia/newExp/new-exp.component';
 import { EditExpComponent } from './components/experiencia/editExp/edit-exp.component';
-
+import { NewEduComponent } from './components/educacion/new-edu/new-edu.component';
+import { EditEduComponent } from './components/educacion/edit-edu/edit-edu.component';
+import { EditarAcercaDeComponent } from './components/acerca-de/editar-acerca-de/editar-acerca-de.component';
+import { NewSkillComponent } from './components/skills/new-skill/new-skill.component';
+import { EditSkillComponent } from './components/skills/edit-skill/edit-skill.component';
+import { EditProyectComponent } from './components/proyectos/edit-proyect/edit-proyect.component';
+import { NewProyectComponent } from './components/proyectos/new-proyect/new-proyect.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +35,14 @@ import { EditExpComponent } from './components/experiencia/editExp/edit-exp.comp
     LoginComponent,
     HomeComponent,
     NewExpComponent,
-    EditExpComponent
+    EditExpComponent,
+    NewEduComponent,
+    EditEduComponent,
+    EditarAcercaDeComponent,
+    NewSkillComponent,
+    EditSkillComponent,
+    EditProyectComponent,
+    NewProyectComponent,
   ],
   imports: [
     BrowserModule,

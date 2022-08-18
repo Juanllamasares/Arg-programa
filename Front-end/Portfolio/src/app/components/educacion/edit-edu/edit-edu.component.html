@@ -1,0 +1,11 @@
+<div class="container" *ngIf="educacion">
+    <form #f="ngForm" (ngSubmit)="onUpdate()" noValidate>
+        <input type="text" placeholder="Titulo" id="tituloEdu" name="tituloEdu" [(ngModel)]="educacion.tituloEdu" required>
+        <textarea placeholder="Descripción" id="descripcionEdu" name="descripcionEdu" [(ngModel)]="educacion.descripcionEdu" required></textarea>
+        <label for="inputImg">Cambiar Foto</label>
+        <br>
+        <input id="inputImg" type="file" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
+        <br>
+        <button type="submit">Editar</button>
+    </form>
+</div>

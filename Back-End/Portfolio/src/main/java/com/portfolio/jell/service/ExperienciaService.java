@@ -4,8 +4,8 @@
  */
 package com.portfolio.jell.service;
 
-import com.portfolio.jell.interfaz.IExperienciaService;
-import com.portfolio.jell.model.Experiencia;
+import com.portfolio.jell.interfaces.IExperienciaService;
+import com.portfolio.jell.entity.Experiencia;
 import com.portfolio.jell.repository.IExperienciaRepository;
 import java.util.List;
 import java.util.Optional;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
 public class ExperienciaService implements IExperienciaService
 {
     @Autowired 
-    IExperienciaRepository expRepo;
+    private IExperienciaRepository expRepo;
     
     @Override
     public List<Experiencia> getListExp(){

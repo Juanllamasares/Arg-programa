@@ -1,20 +1,17 @@
 <div class="educacion__container">
-    <h2 class="ed__title">Educación:</h2>
+    <h2 class="edu__title">Educacion:</h2>
     <br>
-    <h4>Educacion 1:</h4>
-    <img src="../../../assets/img/img_banner.jpg" alt="" class="img__educacion">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique vel, pariatur cum omnis, debitis dolor
-        maxime, dolorem nulla quas alias fugiat cupiditate officia repellat adipisci aut. Dolorum inventore earum
-        itaque.</p>
-    <h4>Educacion 2:</h4>
-    <img src="../../../assets/img/img_banner.jpg" alt="" class="img__educacion">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique vel, pariatur cum omnis, debitis dolor
-        maxime, dolorem nulla quas alias fugiat cupiditate officia repellat adipisci aut. Dolorum inventore earum
-        itaque.</p>
-    <h4>Educacion 3:</h4>
-    <img src="../../../assets/img/img_banner.jpg" alt="" class="img__educacion">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique vel, pariatur cum omnis, debitis dolor
-        maxime, dolorem nulla quas alias fugiat cupiditate officia repellat adipisci aut. Dolorum inventore earum
-        itaque.
+  <img class="img-agregar" src="../../../assets/img/plus.png" alt="agregar" routerLink="/newEdu" *ngIf="isLogged"/>
+
+  <div class="card-edu" *ngFor="let Educacion of educacion">
+    <div class="title-edu-container">
+        <h4>{{Educacion.tituloEdu}}</h4>
+        <img routerLink="/editEdu/{{Educacion.idEdu}}" class="img-action" src="../../../assets/img/editar.png" alt="editar" *ngIf="isLogged">
+        <img class="img-action" src="../../../assets/img/trash.png" alt="eliminar" *ngIf="isLogged" (click)="deleteEdu(Educacion.idEdu)">
+    </div>
+    <img src={{Educacion.imgEdu}} alt="" class="img__trabajo" />
+    <p>
+      {{Educacion.descripcionEdu}}
     </p>
+  </div>
 </div>

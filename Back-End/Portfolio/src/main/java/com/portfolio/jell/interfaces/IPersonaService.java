@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.portfolio.jell.interfaz;
+package com.portfolio.jell.interfaces;
 
-import com.portfolio.jell.model.Persona;
+import com.portfolio.jell.entity.Persona;
 import java.util.List;
 
 /**
@@ -12,11 +12,9 @@ import java.util.List;
  * @author Llamasares
  */
 public interface IPersonaService {
-    public List<Persona> getPersona();
     
-    public void savePersona(Persona persona);
+    public Persona savePersona(Persona persona);
     
-    public void deletePersona(Long id);
+    public Persona getPersona(int id);
     
-    public Persona findPersona(Long id);
 }

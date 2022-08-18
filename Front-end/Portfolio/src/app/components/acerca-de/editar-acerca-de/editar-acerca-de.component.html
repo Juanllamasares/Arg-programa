@@ -1,0 +1,17 @@
+<div class="container" *ngIf="persona">
+    <form #f="ngForm" (ngSubmit)="onUpdate()" noValidate>
+        <input type="text" placeholder="Nombre" id="nombre" name="nombre" [(ngModel)]="persona.nombre" required>
+        <input type="text" placeholder="Apellido" id="apellido" name="apellido" [(ngModel)]="persona.apellido" required>
+        <input type="text" placeholder="Profesion" id="profesion" name="profesion" [(ngModel)]="persona.profesion" required>
+        <img src={{persona.img}} alt="foto-perfil">
+        <br>
+        <input value={{persona.img}} type="text" placeholder="Url imagen" id="img" name="img" [(ngModel)]="persona.img" required>
+        <textarea type="text" placeholder="Descripcion" id="descripcion" name="descripcion" [(ngModel)]="persona.descripcion" required></textarea>
+
+        <label for="inputImg">Cambiar Foto</label>
+        <br>
+        <input id="inputImg" type="file" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
+        <br>
+        <button type="submit">Editar Perfil</button>
+    </form>
+</div>

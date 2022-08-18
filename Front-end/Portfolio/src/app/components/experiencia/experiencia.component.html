@@ -6,10 +6,10 @@
   <div class="card-exp" *ngFor="let Experiencia of experiencia">
     <div class="title-exp-container">
         <h4>{{Experiencia.tituloExp}}</h4>
-      <img routerLink="/editExp/{{Experiencia.id}}" class="img-action" src="../../../assets/img/editar.png" alt="editar" *ngIf="isLogged">
-      <img class="img-action" src="../../../assets/img/trash.png" alt="eliminar" *ngIf="isLogged" (click)="deleteExp(Experiencia.id)">
+      <img routerLink="/editExp/{{Experiencia.idExp}}" class="img-action" src="../../../assets/img/editar.png" alt="editar" *ngIf="isLogged">
+      <img class="img-action" src="../../../assets/img/trash.png" alt="eliminar" *ngIf="isLogged" (click)="deleteExp(Experiencia.idExp)">
     </div>
-    <img src="../../../assets/img/img_banner.jpg" alt="" class="img__trabajo" />
+    <img src={{Experiencia.imgExp}} alt="" class="img__trabajo" />
     <p>
       {{Experiencia.descripcionExp}}
     </p>

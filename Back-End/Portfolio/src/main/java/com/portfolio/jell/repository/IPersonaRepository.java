@@ -4,7 +4,7 @@
  */
 package com.portfolio.jell.repository;
 
-import com.portfolio.jell.model.Persona;
+import com.portfolio.jell.entity.Persona;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author Llamasares
  */
 @Repository
-public interface IPersonaRepository extends JpaRepository<Persona, Long>{
+public interface IPersonaRepository extends JpaRepository<Persona, Integer>{
     
 }

@@ -18,15 +18,16 @@ public class DtoExperiencia {
     private String tituloExp;
     @NotBlank
     private String descripcionExp;
-    //private String imgExp;
+    
+    private String imgExp;
 
     public DtoExperiencia() {
     }
 
-    public DtoExperiencia(String tituloExp, String descripcionExp/*, String imgExp*/) {
+    public DtoExperiencia(String tituloExp, String descripcionExp, String imgExp) {
         this.tituloExp = tituloExp;
         this.descripcionExp = descripcionExp;
-        //this.imgExp = imgExp;
+        this.imgExp = imgExp;
     }
     
 }

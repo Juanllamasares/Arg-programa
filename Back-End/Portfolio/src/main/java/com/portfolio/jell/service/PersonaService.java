@@ -4,10 +4,9 @@
  */
 package com.portfolio.jell.service;
 
-import com.portfolio.jell.interfaz.IPersonaService;
-import com.portfolio.jell.model.Persona;
+import com.portfolio.jell.interfaces.IPersonaService;
+import com.portfolio.jell.entity.Persona;
 import com.portfolio.jell.repository.IPersonaRepository;
-import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,27 +19,18 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class PersonaService implements IPersonaService{
     @Autowired
-    IPersonaRepository iPersonaRepo;
-    
-     @Override
-    public List<Persona> getPersona() {
-        List<Persona> personas = iPersonaRepo.findAll();
-        return personas;
+    private IPersonaRepository iPersonaRepo;
+
+    @Override
+    public Persona savePersona(Persona persona) {
+        return iPersonaRepo.save(persona);
     }
 
     @Override
-    public void savePersona(Persona persona) {
-        iPersonaRepo.save(persona);
-    }
-
-    @Override
-    public void deletePersona(Long id) {
-        iPersonaRepo.deleteById(id);
-    }
-
-    @Override
-    public Persona findPersona(Long id) {
+    public Persona getPersona(int id) {
         Persona persona = iPersonaRepo.findById(id).orElse(null);
         return persona;
     }
+
+    
 }

@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   isLogged = false;
 
-  Persona : Persona = new Persona("","","","");
+  Persona : Persona = new Persona("","","","","");
 
   constructor(public personaService : PersonaService,private router:Router, private tokenService: TokenService) { }
 

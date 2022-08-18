@@ -32,20 +32,27 @@ p{
 }
 
 .title-exp-container{
+    width: 70vw;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 button{
     margin-bottom: 20px;
 }
 
+h4{
+    position: absolute;
+}
+
 .img-action{
+    position: relative;
+    left: 50%;
     width: 40px;
     height: 40px;
-    margin-left: 40px;
     cursor: pointer;
+    float: right;
 }
 
 .img-agregar{

@@ -2,6 +2,10 @@
     <form #f="ngForm" (ngSubmit)="onUpdate()" noValidate>
         <input type="text" placeholder="Titulo" id="tituloExp" name="tituloExp" [(ngModel)]="experiencia.tituloExp" required>
         <textarea placeholder="Descripción" id="descripcionExp" name="descripcionExp" [(ngModel)]="experiencia.descripcionExp" required></textarea>
-        <button type="submit">Actualizar</button>
+        <label for="inputImg">Cambiar Foto</label>
+        <br>
+        <input id="inputImg" type="file" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
+        <br>
+        <button type="submit">Editar</button>
     </form>
 </div>

@@ -5,7 +5,7 @@
 package com.portfolio.jell.controller;
 
 import com.portfolio.jell.dto.DtoExperiencia;
-import com.portfolio.jell.model.Experiencia;
+import com.portfolio.jell.entity.Experiencia;
 import com.portfolio.jell.security.controller.Mensaje;
 import com.portfolio.jell.service.ExperienciaService;
 import java.util.List;
@@ -31,13 +31,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/exp")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ExperienciaController {
-    @Autowired ExperienciaService expService;
+    @Autowired 
+    private ExperienciaService expService;
     
     @GetMapping("/list")
     public ResponseEntity<List<Experiencia>> listExp(){
         List<Experiencia> listExp = expService.getListExp();
         return new ResponseEntity(listExp,HttpStatus.OK);
     }
+    
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoExperiencia dtoExp){
         if(StringUtils.isBlank(dtoExp.getTituloExp())){
@@ -46,17 +48,18 @@ public class ExperienciaController {
         if(expService.existsByTituloExp(dtoExp.getTituloExp())){
             return new ResponseEntity(new Mensaje("Ese titulo de experiencia ya existe"),HttpStatus.BAD_REQUEST);
         }
-        Experiencia exp = new Experiencia(dtoExp.getTituloExp(),dtoExp.getDescripcionExp()/*,dtoExp.getImgExp()*/);
+        Experiencia exp = new Experiencia(dtoExp.getTituloExp(),dtoExp.getDescripcionExp(),dtoExp.getImgExp());
         expService.saveExp(exp);
         
         return new ResponseEntity(new Mensaje("Experiencia creada con exito"),HttpStatus.OK);
     }
+    
     @PutMapping("/edit/{id}")
     public ResponseEntity<?> update(@PathVariable("id")int id,@RequestBody DtoExperiencia dtoExp){
         if(!expService.existsById(id)){
             return new ResponseEntity(new Mensaje("El id no existe"),HttpStatus.BAD_REQUEST);
         }
-        if(expService.existsByTituloExp(dtoExp.getTituloExp()) && expService.getByTituloExp(dtoExp.getTituloExp()).get().getId() != id){
+        if(expService.existsByTituloExp(dtoExp.getTituloExp()) && expService.getByTituloExp(dtoExp.getTituloExp()).get().getIdExp()!= id){
             return new ResponseEntity(new Mensaje("Esa experiencia ya existe"),HttpStatus.BAD_REQUEST);
         }
         if(StringUtils.isBlank(dtoExp.getTituloExp())){
@@ -66,12 +69,13 @@ public class ExperienciaController {
         Experiencia exp = expService.getExp(id).get();
         exp.setTituloExp(dtoExp.getTituloExp());
         exp.setDescripcionExp(dtoExp.getDescripcionExp());
-        //exp.setImgExp(dtoExp.getImgExp());
+        exp.setImgExp(dtoExp.getImgExp());
         
         expService.saveExp(exp);
         
         return new ResponseEntity(new Mensaje("Experiencia editada correctamente"),HttpStatus.OK);
     }
+    
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id")int id){
         if(!expService.existsById(id)){
@@ -81,6 +85,7 @@ public class ExperienciaController {
         
         return new ResponseEntity(new Mensaje("Experiencia eliminada correctamente"),HttpStatus.OK);
     }
+    
     @GetMapping("/getExp/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
         if(!expService.existsById(id))

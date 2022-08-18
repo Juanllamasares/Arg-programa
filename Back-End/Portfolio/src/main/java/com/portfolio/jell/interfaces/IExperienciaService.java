@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.portfolio.jell.interfaz;
+package com.portfolio.jell.interfaces;
 
-import com.portfolio.jell.model.Experiencia;
+import com.portfolio.jell.entity.Experiencia;
 import java.util.List;
 import java.util.Optional;
 

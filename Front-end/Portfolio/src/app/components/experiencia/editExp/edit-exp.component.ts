@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Experiencia } from 'src/app/models/experiencia';
 import { ExperienciaService } from 'src/app/service/experiencia.service';
+import { StorageService } from 'src/app/service/storage.service';
 
 @Component({
   selector: 'app-edit-exp',
@@ -12,10 +13,10 @@ export class EditExpComponent implements OnInit {
 
   experiencia : Experiencia = null;
 
-  constructor(private experienciaService : ExperienciaService, private actRouter : ActivatedRoute, private router : Router) { }
+  constructor(private experienciaService : ExperienciaService, private actRoute : ActivatedRoute, private router : Router,private storageService:StorageService) { }
 
   ngOnInit(): void {
-    const id = this.actRouter.snapshot.params['id'];
+    const id = this.actRoute.snapshot.params['id'];
     this.experienciaService.getExp(id).subscribe(data=>{
       this.experiencia = data;
     },
@@ -26,7 +27,7 @@ export class EditExpComponent implements OnInit {
   }
 
   onUpdate(): void {
-    const id = this.actRouter.snapshot.params['id'];
+    const id = this.actRoute.snapshot.params['id'];
 
     this.experienciaService.update(id, this.experiencia).subscribe(
       data=>{
@@ -38,6 +39,25 @@ export class EditExpComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+  }
+
+  cargarImagen(event: any) {
+    //console.log(event.target.files);
+
+    let imgFile = event.target.files;
+    let reader = new FileReader();
+    let nombreImg = 'img';
+
+    reader.readAsDataURL(imgFile[0]);
+    reader.onloadend = () => {
+      //console.log(reader.result);
+      this.storageService
+        .subirImagen(nombreImg + '_' + Date.now(), reader.result)
+        .then((urlImagen) => {
+          console.log(urlImagen);
+          this.experiencia.imgExp = urlImagen;
+        });
+    };
   }
 
 }

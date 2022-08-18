@@ -32,3 +32,26 @@
 p{
     padding: 20px;
 }
+
+.banner__container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 100vw;
+    color: #fff;
+    text-shadow: 5px 5px 5px rgb(85, 17, 17);
+
+}
+.banner__title{
+    margin: 10px;
+    text-align: center;
+}
+
+.img-action{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}

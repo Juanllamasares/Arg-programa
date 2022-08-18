@@ -10,15 +10,63 @@
     box-shadow: 0 0 10px 10px rgb(85, 17, 17);
     width: 90vw;
 }
-.ed__title{
+.card-edu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.edu__title{
     margin: 20px;
 }
+
 p{
     padding: 40px;
 }
-.img__educacion{
+
+.img__trabajo{
     width: 150px;
     height: 100px;
     border-radius: 10%;
     margin-top: 20px;
+}
+
+.title-edu-container{
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    margin-bottom: 20px;
+}
+
+h4{
+    position: absolute;
+}
+
+.img-action{
+    position: relative;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    float: right;
+}
+
+.img-agregar{
+    width:30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.img-agregar:hover{
+    border: 2px solid #fff;
 }

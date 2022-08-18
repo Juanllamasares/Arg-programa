@@ -9,6 +9,16 @@ body {
   background-position: center;
   overflow: hidden;
 }
+
+.container{
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  position: relative;
+  right: 0;
+  left: 0;
+}
+
 @media screen and (max-width: 600px) {
   body {
     background-size: cover;

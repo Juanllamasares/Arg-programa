@@ -4,19 +4,22 @@
  */
 package com.portfolio.jell.controller;
 
-import com.portfolio.jell.model.Persona;
+import com.portfolio.jell.dto.DtoPersona;
+import com.portfolio.jell.entity.Persona;
+import com.portfolio.jell.security.controller.Mensaje;
 import com.portfolio.jell.service.PersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -24,52 +27,42 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Llamasares
  */
 @RestController
+@RequestMapping("/persona")
 @CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
+
     @Autowired
-    PersonaService personaServ;
-    
-    @GetMapping("/personas/traer")
-    public List<Persona> getPersona(){
-        return personaServ.getPersona();
-    }
-    
+    private PersonaService personaServ;
+
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/persona/crear")
-    public String createPersona(@RequestBody Persona persona){
+    @PostMapping("/create")
+    public String crear(@RequestBody Persona persona) {
         personaServ.savePersona(persona);
-        return "Persona creada correctamente.";
+        return "Persona creada correctamente";
     }
-    
+
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/persona/editar/{id}")
-    public Persona editPersona(@PathVariable Long id,
-                               @RequestParam ("nombre") String newNombre,
-                               @RequestParam ("apellido") String newApellido,
-                               @RequestParam ("profesion") String newProfesion,
-                               @RequestParam ("img") String newImg){
-        Persona persona = personaServ.findPersona(id); 
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") int id,@RequestBody DtoPersona dtoPer){
         
-        persona.setNombre(newNombre);
-        persona.setApellido(newApellido);
-        persona.setProfesion(newProfesion);
-        persona.setImg(newImg);
         
-        personaServ.savePersona(persona);
+        Persona per = personaServ.getPersona(id);
         
-        return persona;
+        per.setNombre(dtoPer.getNombre());
+        per.setApellido(dtoPer.getApellido());
+        per.setProfesion(dtoPer.getProfesion());
+        per.setDescripcion(dtoPer.getDescripcion());
+        per.setImg(dtoPer.getImg());
         
+        personaServ.savePersona(per);
+        
+        return new ResponseEntity(new Mensaje("Persona editada correctamente"),HttpStatus.OK);
     }
-    
-    @GetMapping("/personas/traer/{id}")
-    public Persona findPersona(@PathVariable Long id){
-        return personaServ.findPersona(id);
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Persona> getPersona(@PathVariable("id") int id) {
+        Persona persona = personaServ.getPersona(id);
+        return new ResponseEntity(persona,HttpStatus.OK);
     }
-    
-    @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/persona/borrar/{id}")
-    public String deletePersona(@PathVariable Long id){
-        personaServ.deletePersona(id);
-        return "Persona borrada correctamente";
-    }
+
 }
