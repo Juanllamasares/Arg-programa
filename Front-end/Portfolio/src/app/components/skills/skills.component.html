@@ -1,5 +1,5 @@
 <div class="skills__container">
-  <h4 class="title__skills">Habilidades Técnicas:</h4>
+  <h2 class="title__skills">Habilidades Técnicas y Blandas:</h2>
   <br>
   <img class="img-agregar" src="../../../assets/img/plus.png" alt="agregar" routerLink="/newSkill" *ngIf="isLogged"/>
   <div class="all__skills">
@@ -23,7 +23,8 @@
           [unitsColor]="'#fff'"
           [unitsFontSize]="'30'"
         ></circle-progress>
-        <img
+        <div class="btn-container">
+          <img
           routerLink="/editSkill/{{ skill.idSkill }}"
           class="img-action"
           src="../../../assets/img/editar.png"
@@ -37,6 +38,7 @@
           *ngIf="isLogged"
           (click)="deleteExp(skill.idSkill)"
         />
+        </div>
       </div>
     </div>
   </div>

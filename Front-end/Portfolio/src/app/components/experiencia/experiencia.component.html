@@ -1,17 +1,35 @@
 <div class="experiencia__container">
-    <h2 class="exp__title">Experiencia:</h2>
-    <br>
-  <img class="img-agregar" src="../../../assets/img/plus.png" alt="agregar" routerLink="/newExp" *ngIf="isLogged"/>
+  <h2 class="exp__title">Experiencia:</h2>
+  <br />
+  <img
+    class="img-agregar"
+    src="../../../assets/img/plus.png"
+    alt="agregar"
+    routerLink="/newExp"
+    *ngIf="isLogged"
+  />
 
   <div class="card-exp" *ngFor="let Experiencia of experiencia">
     <div class="title-exp-container">
-        <h4>{{Experiencia.tituloExp}}</h4>
-      <img routerLink="/editExp/{{Experiencia.idExp}}" class="img-action" src="../../../assets/img/editar.png" alt="editar" *ngIf="isLogged">
-      <img class="img-action" src="../../../assets/img/trash.png" alt="eliminar" *ngIf="isLogged" (click)="deleteExp(Experiencia.idExp)">
+      <h4>{{ Experiencia.tituloExp }}</h4>
+      <img
+        routerLink="/editExp/{{ Experiencia.idExp }}"
+        class="img-action"
+        src="../../../assets/img/editar.png"
+        alt="editar"
+        *ngIf="isLogged"
+      />
+      <img
+        class="img-action"
+        src="../../../assets/img/trash.png"
+        alt="eliminar"
+        *ngIf="isLogged"
+        (click)="deleteExp(Experiencia.idExp)"
+      />
     </div>
-    <img src={{Experiencia.imgExp}} alt="" class="img__trabajo" />
+    <img src="{{ Experiencia.imgExp }}" alt="" class="img__trabajo" />
     <p>
-      {{Experiencia.descripcionExp}}
+      {{ Experiencia.descripcionExp }}
     </p>
   </div>
 </div>

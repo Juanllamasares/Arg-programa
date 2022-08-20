@@ -14,6 +14,7 @@ export class NewEduComponent implements OnInit {
   tituloEdu : string = '';
   descripcionEdu : string = '';
   imgEdu : string = '../../../assets/img/no-image.png';
+  cargando = false;
 
   constructor(private educacionService : EducacionService, private router : Router, private storageService : StorageService) { }
 
@@ -38,6 +39,7 @@ export class NewEduComponent implements OnInit {
     let imgFile = event.target.files;
     let reader = new FileReader();
     let nombreImg = 'img';
+    this.cargando = true;
 
     reader.readAsDataURL(imgFile[0]);
     reader.onloadend = () => {
@@ -47,7 +49,7 @@ export class NewEduComponent implements OnInit {
         .then((urlImagen) => {
           console.log(urlImagen);
           this.imgEdu = urlImagen;
-          btn.disabled = false;
+          this.cargando = false;
         });
     };
   }

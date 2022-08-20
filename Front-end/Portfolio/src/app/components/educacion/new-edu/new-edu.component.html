@@ -8,7 +8,8 @@
         <br>
         <img src={{imgEdu}} alt="imagenExp">
         <br>
-        <button type="submit">Agregar</button>
+        <h4 *ngIf="cargando">Espere...</h4>
+        <button *ngIf="!cargando" type="submit">Agregar</button>
     </form>
 </div>
 

@@ -17,6 +17,8 @@ export class NewExpComponent implements OnInit {
 
   constructor(private experienciaService : ExperienciaService, private router : Router, private storageService : StorageService) { }
 
+  cargando = false;
+
   ngOnInit(): void {
   }
 
@@ -33,11 +35,10 @@ export class NewExpComponent implements OnInit {
 
   cargarImagen(event: any) {
     //console.log(event.target.files);
-    let btn = document.querySelector("button");
-    btn.disabled = true;
     let imgFile = event.target.files;
     let reader = new FileReader();
     let nombreImg = 'img';
+    this.cargando = true;
 
     reader.readAsDataURL(imgFile[0]);
     reader.onloadend = () => {
@@ -47,7 +48,7 @@ export class NewExpComponent implements OnInit {
         .then((urlImagen) => {
           console.log(urlImagen);
           this.imgExp = urlImagen;
-          btn.disabled = false;
+          this.cargando = false;
         });
     };
   }

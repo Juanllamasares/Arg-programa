@@ -2,11 +2,14 @@
     <form #f="ngForm" (ngSubmit)="onUpdate()" noValidate>
         <input type="text" placeholder="Titulo" id="tituloSkill" name="tituloSkill" [(ngModel)]="habilidad.tituloSkill" required>
         <input type="number" placeholder="Porcentaje" id="porcentaje" name="porcentaje" [(ngModel)]="habilidad.porcentaje" required>
-        <label for="inputImg">Cambiar Foto</label>
+        <label for="inputImg">Cambiar Imagen</label>
         <br>
         <input id="inputImg" type="file" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
         <br>
-        <button type="submit">Editar</button>
+        <img src={{habilidad.imgSkill}} alt="imagenExp">
+        <br>
+        <h4 *ngIf="cargando">Espere...</h4>
+        <button *ngIf="!cargando" type="submit">Editar</button>
     </form>
 </div>
 

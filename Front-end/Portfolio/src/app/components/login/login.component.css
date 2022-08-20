@@ -110,3 +110,11 @@ a:hover {
 p {
   color: #0000ff;
 }
+
+.btn-login:active{
+  transform: scale(.9);
+  -webkit-transform: scale(.9);
+  -moz-transform: scale(.9);
+  -ms-transform: scale(.9);
+  -o-transform: scale(.9);
+}

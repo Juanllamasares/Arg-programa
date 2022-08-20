@@ -12,6 +12,7 @@ import { StorageService } from 'src/app/service/storage.service';
 export class EditEduComponent implements OnInit {
 
   educacion : Educacion = null;
+  cargando = false;
 
   constructor(private educacionService : EducacionService, private actRouter : ActivatedRoute, private router : Router, private storageService : StorageService) { }
 
@@ -47,6 +48,7 @@ export class EditEduComponent implements OnInit {
     let imgFile = event.target.files;
     let reader = new FileReader();
     let nombreImg = 'img';
+    this.cargando = true;
 
     reader.readAsDataURL(imgFile[0]);
     reader.onloadend = () => {
@@ -56,6 +58,7 @@ export class EditEduComponent implements OnInit {
         .then((urlImagen) => {
           console.log(urlImagen);
           this.educacion.imgEdu = urlImagen;
+          this.cargando = false;
         });
     };
   }

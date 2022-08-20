@@ -12,6 +12,7 @@ import { StorageService } from 'src/app/service/storage.service';
 export class EditSkillComponent implements OnInit {
 
   habilidad : Habilidad = null;
+  cargando = false;
 
   constructor(private habilidadService : HabilidadService, private actRoute : ActivatedRoute, private router : Router,private storageService:StorageService) { }
 
@@ -47,6 +48,7 @@ export class EditSkillComponent implements OnInit {
     let imgFile = event.target.files;
     let reader = new FileReader();
     let nombreImg = 'img';
+    this.cargando =  true;
 
     reader.readAsDataURL(imgFile[0]);
     reader.onloadend = () => {
@@ -56,6 +58,7 @@ export class EditSkillComponent implements OnInit {
         .then((urlImagen) => {
           console.log(urlImagen);
           this.habilidad.imgSkill = urlImagen;
+          this.cargando = false;
         });
     };
   }

@@ -1,13 +1,42 @@
 <div class="proyect__container">
   <h2 class="proyect__title">Proyectos:</h2>
   <br />
-  <h4>Proyecto 1:</h4>
-  <a href=""
-    ><img src="../../../assets/img/img_banner.jpg" alt="" class="img__proyecto"
-  /></a>
-  <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique vel,
-    pariatur cum omnis, debitis dolor maxime, dolorem nulla quas alias fugiat
-    cupiditate officia repellat adipisci aut. Dolorum inventore earum itaque.
-  </p>
+  <img
+    class="img-agregar"
+    src="../../../assets/img/plus.png"
+    alt="agregar"
+    routerLink="/newProyect"
+    *ngIf="isLogged"
+  />
+  
+  <div class="proyect" *ngFor="let proyect of proyectos">
+    <div class="title-proyect-container">
+      <h4>{{proyect.tituloProyect}}:</h4>
+      <img
+        routerLink="/editProyect/{{ proyect.idProy }}"
+        class="img-action"
+        src="../../../assets/img/editar.png" 
+        alt="editar"
+        *ngIf="isLogged"
+      />
+      <img
+        class="img-action"
+        src="../../../assets/img/trash.png"
+        alt="eliminar"
+        *ngIf="isLogged"
+        (click)="deleteExp(proyect.idProy)"
+      />
+    </div>
+    
+    <img
+        src={{proyect.imgProyect}}
+        alt="img_proyecto"
+        class="img__proyecto"
+    />
+    <br>
+    <a href={{proyect.urlProyecto}} target="_blank">Ir al repo...</a>
+    <p>
+      {{proyect.descripcionProyect}}
+    </p>
+  </div>
 </div>

@@ -12,11 +12,12 @@ import { StorageService } from 'src/app/service/storage.service';
 export class EditExpComponent implements OnInit {
 
   experiencia : Experiencia = null;
+  cargando = false;
 
   constructor(private experienciaService : ExperienciaService, private actRoute : ActivatedRoute, private router : Router,private storageService:StorageService) { }
 
   ngOnInit(): void {
-    const id = this.actRoute.snapshot.params['id'];
+    const id = this.actRoute.snapshot.params['id']; 
     this.experienciaService.getExp(id).subscribe(data=>{
       this.experiencia = data;
     },
@@ -47,6 +48,7 @@ export class EditExpComponent implements OnInit {
     let imgFile = event.target.files;
     let reader = new FileReader();
     let nombreImg = 'img';
+    this.cargando = true;
 
     reader.readAsDataURL(imgFile[0]);
     reader.onloadend = () => {
@@ -56,6 +58,7 @@ export class EditExpComponent implements OnInit {
         .then((urlImagen) => {
           console.log(urlImagen);
           this.experiencia.imgExp = urlImagen;
+          this.cargando = false;
         });
     };
   }

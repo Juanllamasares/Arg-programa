@@ -8,7 +8,6 @@ import com.portfolio.jell.dto.DtoPersona;
 import com.portfolio.jell.entity.Persona;
 import com.portfolio.jell.security.controller.Mensaje;
 import com.portfolio.jell.service.PersonaService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,19 +33,17 @@ public class PersonaController {
     @Autowired
     private PersonaService personaServ;
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public String crear(@RequestBody Persona persona) {
         personaServ.savePersona(persona);
         return "Persona creada correctamente";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/edit/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id,@RequestBody DtoPersona dtoPer){
         
         
-        Persona per = personaServ.getPersona(id);
+        Persona per = personaServ.getPersona(id).get();
         
         per.setNombre(dtoPer.getNombre());
         per.setApellido(dtoPer.getApellido());
@@ -61,8 +58,8 @@ public class PersonaController {
 
     @GetMapping("/get/{id}")
     public ResponseEntity<Persona> getPersona(@PathVariable("id") int id) {
-        Persona persona = personaServ.getPersona(id);
-        return new ResponseEntity(persona,HttpStatus.OK);
+        Persona persona = personaServ.getPersona(id).get();
+        return new ResponseEntity(persona, HttpStatus.OK);
     }
 
 }

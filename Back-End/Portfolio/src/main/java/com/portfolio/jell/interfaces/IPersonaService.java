@@ -5,7 +5,7 @@
 package com.portfolio.jell.interfaces;
 
 import com.portfolio.jell.entity.Persona;
-import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -13,8 +13,8 @@ import java.util.List;
  */
 public interface IPersonaService {
     
-    public Persona savePersona(Persona persona);
+    public void savePersona(Persona persona);
     
-    public Persona getPersona(int id);
+    public Optional <Persona> getPersona(int id);
     
 }

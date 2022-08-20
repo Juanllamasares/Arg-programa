@@ -35,7 +35,7 @@ export class SkillsComponent implements OnInit {
 
   deleteExp(id? : number){
     if(id != undefined){
-      this.habilidadService.delete(id).subscribe(data=>{this.cargarExp()},err=>{alert('No se pudo eliminar la Experiencia')})
+      this.habilidadService.delete(id).subscribe(data=>{this.cargarExp()},err=>{alert('No se pudo eliminar la Habilidad')})
     }
   }
 

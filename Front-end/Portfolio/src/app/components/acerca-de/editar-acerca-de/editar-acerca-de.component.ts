@@ -12,6 +12,7 @@ import { StorageService } from 'src/app/service/storage.service';
 export class EditarAcercaDeComponent implements OnInit {
 
   persona : Persona = null;
+  cargando = false;
 
   constructor(
     private personaService: PersonaService,
@@ -21,8 +22,8 @@ export class EditarAcercaDeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    //const id = this.actRoute.snapshot.params['id'];
-    this.personaService.getPersona().subscribe(data => {this.persona = data});
+    const id = this.actRoute.snapshot.params['id'];
+    this.personaService.getPersona().subscribe(data => {this.persona = data},err=>{alert("error")});
   }
 
   onUpdate(): void {
@@ -45,6 +46,7 @@ export class EditarAcercaDeComponent implements OnInit {
     let imgFile = event.target.files;
     let reader = new FileReader();
     let nombreImg = 'img';
+    this.cargando = true;
 
     reader.readAsDataURL(imgFile[0]);
     reader.onloadend = () => {
@@ -54,6 +56,7 @@ export class EditarAcercaDeComponent implements OnInit {
         .then((urlImagen) => {
           console.log(urlImagen);
           this.persona.img = urlImagen;
+          this.cargando = false;
         });
     };
   }

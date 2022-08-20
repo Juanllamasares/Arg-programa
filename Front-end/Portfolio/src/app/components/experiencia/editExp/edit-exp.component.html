@@ -6,6 +6,9 @@
         <br>
         <input id="inputImg" type="file" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
         <br>
-        <button type="submit">Editar</button>
+        <img src={{experiencia.imgExp}} alt="imagenExp">
+        <br>
+        <h4 *ngIf="cargando">Espere...</h4>
+        <button *ngIf="!cargando" type="submit">Editar</button>
     </form>
 </div>

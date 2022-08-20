@@ -43,7 +43,7 @@ public class ProyectosController {
         if(proyectServ.existsByTituloProyect(dtoProyect.getTituloProyect())){
             return new ResponseEntity(new Mensaje("Ese titulo del proyecto ya existe"),HttpStatus.BAD_REQUEST);
         }
-        Proyectos proyect = new Proyectos(dtoProyect.getTituloProyect(),dtoProyect.getDescripcionProyect(),dtoProyect.getImgProyect());
+        Proyectos proyect = new Proyectos(dtoProyect.getTituloProyect(),dtoProyect.getUrlProyecto(),dtoProyect.getDescripcionProyect(),dtoProyect.getImgProyect());
         proyectServ.saveProyect(proyect);
         
         return new ResponseEntity(new Mensaje("Proyecto creado con exito"),HttpStatus.OK);
@@ -63,6 +63,7 @@ public class ProyectosController {
         
         Proyectos proyect = proyectServ.getProyect(id).get();
         proyect.setTituloProyect(dtoProyect.getTituloProyect());
+        proyect.setUrlProyecto(dtoProyect.getUrlProyecto());
         proyect.setDescripcionProyect(dtoProyect.getDescripcionProyect());
         proyect.setImgProyect(dtoProyect.getImgProyect());
         

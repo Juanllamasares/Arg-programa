@@ -11,9 +11,11 @@ import { StorageService } from 'src/app/service/storage.service';
 })
 export class NewSkillComponent implements OnInit {
 
-  tituloSkill : string = '';
-  porcentaje : number = 0;
+  tituloSkill : string ;
+  porcentaje : number ;
   imgSkill : string = '../../../assets/img/no-image.png';
+
+  cargando = false;
 
   constructor(private habilidadService : HabilidadService, private router : Router, private storageService : StorageService) { }
 
@@ -33,12 +35,10 @@ export class NewSkillComponent implements OnInit {
 
   cargarImagen(event: any) {
     //console.log(event.target.files);
-    let btn = document.querySelector("button");
-    btn.disabled = true;
     let imgFile = event.target.files;
     let reader = new FileReader();
     let nombreImg = 'img';
-
+    this.cargando = true;
     reader.readAsDataURL(imgFile[0]);
     reader.onloadend = () => {
       //console.log(reader.result);
@@ -47,7 +47,7 @@ export class NewSkillComponent implements OnInit {
         .then((urlImagen) => {
           console.log(urlImagen);
           this.imgSkill = urlImagen;
-          btn.disabled = false;
+          this.cargando = false
         });
     };
   }
