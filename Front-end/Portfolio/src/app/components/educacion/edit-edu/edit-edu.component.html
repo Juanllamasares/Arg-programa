@@ -1,4 +1,4 @@
-<div class="container" *ngIf="educacion">
+<div class="container-edu" *ngIf="educacion">
     <form #f="ngForm" (ngSubmit)="onUpdate()" noValidate>
         <input type="text" placeholder="Titulo" id="tituloEdu" name="tituloEdu" [(ngModel)]="educacion.tituloEdu" required>
         <textarea placeholder="Descripción" id="descripcionEdu" name="descripcionEdu" [(ngModel)]="educacion.descripcionEdu" required></textarea>

@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-exp">
     <form #f="ngForm" (ngSubmit)="onCreate()" noValidate>
         <input type="text" placeholder="Titulo" id="tituloExp" name="tituloExp" [(ngModel)]="tituloExp" required>
         <textarea placeholder="Descripción" id="descripcionExp" name="descripcionExp" [(ngModel)]="descripcionExp" required></textarea>
-        <label for="inputImg">Elegir foto</label>
+        <label for="inputImg">Elegir Imagen</label>
         <br>
         <input id="inputImg" type="file" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
         <br>

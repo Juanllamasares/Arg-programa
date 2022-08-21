@@ -1,4 +1,4 @@
-<div class="container" *ngIf="persona">
+<div class="container-acerca" *ngIf="persona">
     <form #f="ngForm" (ngSubmit)="onUpdate()" noValidate>
         <input type="text" placeholder="Nombre" id="nombre" name="nombre" [(ngModel)]="persona.nombre" required>
         <input type="text" placeholder="Apellido" id="apellido" name="apellido" [(ngModel)]="persona.apellido" required>

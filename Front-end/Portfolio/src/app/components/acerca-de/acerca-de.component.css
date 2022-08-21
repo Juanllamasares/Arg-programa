@@ -18,7 +18,6 @@
     border-radius: 50%;
     border: 3px solid #000;
     object-fit: cover;
-    object-position: -.5em -2.5em;
     width: 150px;
     height: 140px;
     background-color: rgb(85, 17, 17);

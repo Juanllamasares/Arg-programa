@@ -1,4 +1,4 @@
-<div class="container" *ngIf="proyecto">
+<div class="container-proy" *ngIf="proyecto">
     <form #f="ngForm" (ngSubmit)="onUpdate()" noValidate>
 
         <input type="text" placeholder="Titulo" id="tituloProyect" name="tituloProyect" [(ngModel)]="proyecto.tituloProyect" required>
@@ -7,7 +7,7 @@
 
         <textarea type="text" placeholder="Descripcion..." id="descripcionProyect" name="descripcionProyect" [(ngModel)]="proyecto.descripcionProyect" required></textarea>
 
-        <label for="inputImg">Cambiar Foto</label>
+        <label for="inputImg">Cambiar Imagen</label>
         <br>
         <input id="inputImg" type="file" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
         <br>

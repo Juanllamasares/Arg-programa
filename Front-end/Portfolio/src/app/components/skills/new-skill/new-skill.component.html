@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-skill">
     <form #f="ngForm" (ngSubmit)="onCreate()" noValidate>
         <input type="text" placeholder="Titulo de la Habilidad" id="tituloSkill" name="tituloSkill" [(ngModel)]="tituloSkill" required>
         <input type="number" placeholder="Porcentaje" id="porcentaje" name="porcentaje" [(ngModel)]="porcentaje" required>
-        <label for="inputImg">Elegir imagen</label>
+        <label for="inputImg">Elegir Imagen</label>
         <br>
         <input id="inputImg" type="file" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
         <br>

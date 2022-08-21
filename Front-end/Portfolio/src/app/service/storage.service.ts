@@ -9,7 +9,7 @@ firebase.initializeApp(environment.firebaseConfig);
   providedIn: 'root'
 })
 export class StorageService {
-  storareRef = firebase.app().storage().ref();
+  storageRef = firebase.app().storage().ref();
 
 
   constructor() { }
@@ -18,7 +18,7 @@ export class StorageService {
   async subirImagen(nombreImg: string, imgBase64: any) {
 
     try {
-      let respuesta = await this.storareRef.child("/portfolio/" + nombreImg).putString(imgBase64, 'data_url');
+      let respuesta = await this.storageRef.child("/portfolio/" + nombreImg).putString(imgBase64, 'data_url');
       console.log(respuesta);
       return await respuesta.ref.getDownloadURL();
     } catch (err) {
