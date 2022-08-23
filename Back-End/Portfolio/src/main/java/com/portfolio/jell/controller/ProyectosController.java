@@ -23,7 +23,7 @@ import com.portfolio.jell.service.ProyectoService;
 
 @RestController
 @RequestMapping("/proyects")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfolio-e0307.web.app")
 
 public class ProyectosController {
     @Autowired 
