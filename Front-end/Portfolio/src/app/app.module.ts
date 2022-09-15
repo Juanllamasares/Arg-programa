@@ -23,6 +23,7 @@ import { NewSkillComponent } from './components/skills/new-skill/new-skill.compo
 import { EditSkillComponent } from './components/skills/edit-skill/edit-skill.component';
 import { EditProyectComponent } from './components/proyectos/edit-proyect/edit-proyect.component';
 import { NewProyectComponent } from './components/proyectos/new-proyect/new-proyect.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { NewProyectComponent } from './components/proyectos/new-proyect/new-proy
     EditSkillComponent,
     EditProyectComponent,
     NewProyectComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
