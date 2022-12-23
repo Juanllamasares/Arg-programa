@@ -38,7 +38,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "https://portfolio-e0307.web.app")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
     @Autowired PasswordEncoder passwordEncoder;
     @Autowired AuthenticationManager authManager;
@@ -49,13 +49,13 @@ public class AuthController {
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo (@Valid @RequestBody NuevoUsuario nuevoUsuario,BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            return new ResponseEntity(new Mensaje("Introduccion de campos invalida."),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Mensaje("Introduccion de campos invalida."),HttpStatus.BAD_REQUEST);
         }
         if(usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario())){
-            return new ResponseEntity(new Mensaje("Ese Nombre de usuario ya Existe."),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Mensaje("Ese Nombre de usuario ya Existe."),HttpStatus.BAD_REQUEST);
         }
         if(usuarioService.existsByEmail(nuevoUsuario.getEmail())){
-            return new ResponseEntity(new Mensaje("Ese Email ya Existe."),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Mensaje("Ese Email ya Existe."),HttpStatus.BAD_REQUEST);
         }
         
         Usuario usuario = new Usuario(nuevoUsuario.getNombre(),nuevoUsuario.getNombreUsuario(),
@@ -72,13 +72,13 @@ public class AuthController {
         
         usuarioService.saveUsuario(usuario);
         
-        return new ResponseEntity(new Mensaje("Usuario guardado"),HttpStatus.CREATED);
+        return new ResponseEntity<>(new Mensaje("Usuario guardado"),HttpStatus.CREATED);
     }
     
     @PostMapping("/login")
-    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario,BindingResult bindingResult){
+    public ResponseEntity<?> login(@Valid @RequestBody LoginUsuario loginUsuario,BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            return new ResponseEntity(new Mensaje("Campos incorrectos."),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Campos incorrectos.",HttpStatus.BAD_REQUEST);
         }
         Authentication authentication = authManager.authenticate(new UsernamePasswordAuthenticationToken(
         loginUsuario.getNombreUsuario(),loginUsuario.getPassword()));
@@ -91,6 +91,6 @@ public class AuthController {
         
         JwtDto jwtDto = new JwtDto(jwt,userDetails.getUsername(),userDetails.getAuthorities());
         
-        return new ResponseEntity(jwtDto,HttpStatus.OK);
+        return new ResponseEntity<>(jwtDto,HttpStatus.OK);
     }
 }

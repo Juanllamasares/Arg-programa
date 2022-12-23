@@ -1,10 +1,35 @@
-<div class="header__container">
-    <img src="../../../assets/img/Logo.png" alt="ArgPrograma-logo" class="img__logo">
-    <h1 class="title">Bienvenido a mi Portfolio</h1>
-    <div class="redes__container">
-        <a href="https://github.com/Juanllamasares" target="_blank"><img src=".../../../../../assets/img/github.png" alt="github-logo" class="img__redes"></a>
-        <a href="https://www.linkedin.com/in/juan-l-46688b206/" target="_blank"><img src="../../../assets/img/linkedin.png" alt="linkedin-logo" class="img__redes"></a>
-        <a href="/login" (click)="login()" *ngIf="!isLogged"><img src="../../../assets/img/programador.png" alt="login" class="img__redes"></a>
-        <a href="" (click)="onLogOut()" *ngIf="isLogged"><img src="../../../assets/img/cerrar-sesion.png" alt="login" class="img__redes"></a>
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-toggler">
+        <a class="navbar-brand" href="#">
+            <img src="../../../assets/img/J-removebg.png" alt="Logo" class="logo-nav">
+        </a>
+        <ul class="navbar-nav d-flex justify-content-center align-items-center">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#sobre-mi">Sobre mí</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tecnologias">Habilidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#proyectos">Proyectos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#educacion">Educación</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login" (click)="login()" *ngIf="!isLogged">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" (click)="onLogOut()" *ngIf="isLogged">Logout</a>
+          </li>
+        </ul>
+      </div>
     </div>
-</div>
+  </nav>

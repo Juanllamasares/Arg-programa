@@ -1,35 +1,26 @@
-<div class="experiencia__container">
-  <h2 class="exp__title">Experiencia:</h2>
-  <br />
-  <img
-    class="img-agregar"
-    src="../../../assets/img/plus.png"
-    alt="agregar"
-    routerLink="/newExp"
-    *ngIf="isLogged"
-  />
-
-  <div class="card-exp" *ngFor="let Experiencia of experiencia">
-    <div class="title-exp-container">
-      <h4>{{ Experiencia.tituloExp }}</h4>
-      <img
-        routerLink="/editExp/{{ Experiencia.idExp }}"
-        class="img-action"
-        src="../../../assets/img/editar.png"
-        alt="editar"
-        *ngIf="isLogged"
-      />
-      <img
-        class="img-action"
-        src="../../../assets/img/trash.png"
-        alt="eliminar"
-        *ngIf="isLogged"
-        (click)="deleteExp(Experiencia.idExp)"
-      />
+<section class="experiencia seccion-clara">
+  <h2 class="seccion-titulo texto-negro">Experiencia   <i class="bi bi-plus-lg" routerLink="/newExp" *ngIf="isLogged"></i></h2>
+  <div class="container text-center">
+    <div class="row">
+      <div class="columna col-12 col-md-4" *ngFor="let experiencia of experiencias">
+        <div>
+          <i
+            routerLink="/editExp/{{experiencia.idExp}}"
+            class="bi bi-pencil-square p-3 mb-2 fs-3"
+            *ngIf="isLogged"
+          ></i>
+          <i
+            (click)="deleteExp(experiencia.idExp)"
+            class="bi bi-trash3 mb-2 p-3 fs-3"
+            *ngIf="isLogged"
+          ></i>
+        </div>
+        <img src="{{experiencia.imgExp}}" alt="" class="img-fluid img-exp rounded">
+        <p class="experiencia-titulo">
+          {{experiencia.tituloExp}}
+        </p>
+        <p>{{experiencia.descripcionExp}}</p>
+      </div>
     </div>
-    <img src="{{ Experiencia.imgExp }}" alt="" class="img__trabajo" />
-    <p>
-      {{ Experiencia.descripcionExp }}
-    </p>
   </div>
-</div>
+</section>

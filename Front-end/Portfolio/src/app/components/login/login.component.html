@@ -9,7 +9,7 @@
     <h3>Inicia sesión</h3>
     <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
       <div class="inputBox">
-        <input id="nombreUsuario" type="text" name="nombreUsuario" placeholder="Cuenta" [(ngModel)]="nombreUsuario" required/>
+        <input autocomplete="off" id="nombreUsuario" type="text" name="nombreUsuario" placeholder="Cuenta" [(ngModel)]="nombreUsuario" required/>
         <input id="password" type="password" name="password" placeholder="Contraseña" [(ngModel)]="password" required/>
       </div>
       <input class="btn-login" type="submit" name="" value="Login" />

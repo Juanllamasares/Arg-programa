@@ -2,7 +2,7 @@
 .container-login{
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: #1b1b32;
   position: relative;
   right: 0;
   left: 0;
@@ -71,7 +71,7 @@ h3 {
   outline: none;
   height: 40px;
   font-size: 16px;
-  background: #b31500;
+  background: rgb(13, 110, 253);
   color: #fff;
   border-radius: 20px;
   cursor: pointer;

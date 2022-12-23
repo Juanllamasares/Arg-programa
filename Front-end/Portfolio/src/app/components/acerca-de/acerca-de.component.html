@@ -1,19 +1,35 @@
-<div class="banner__container">
-    <img routerLink="/editAcercaDe/{{persona.id}}" class="img-action" src="../../../assets/img/editar.png" alt="editar" *ngIf="isLogged">
-    <h2 class="banner__title">
-    {{ persona.nombre }} {{ persona.apellido }} {{ persona.profesion }}
-  </h2>
-</div>
-<figure class="foto__container">
-  <img
-    src={{persona.img}}
-    alt="foto"
-    class="mi__foto"
-  />
-</figure>
-<div class="acerca__container">
-  <h2 class="acerca__title">Acerca de:</h2>
-  <p>
-    {{persona.descripcion}}
-  </p>
-</div>
+<section class="hero align-items-stretch">
+  <div
+    class="hero-principal d-flex flex-column justify-content-center align-items-center"
+  >
+    <i
+      class="bi bi-pencil-square"
+      routerLink="/editAcercaDe/{{ persona.id }}"
+      *ngIf="isLogged"
+    ></i>
+    <img
+      src="../../../assets/img/mi_foto.png"
+      alt="foto"
+      class="img-hero rounded-circle"
+    />
+    <h1>
+      Hola soy {{persona.nombre}} {{persona.apellido}}
+    </h1>
+    <h2>{{persona.profesion}}</h2>
+  </div>
+  <div class="hero-inferior">
+    <img
+      src="../../../assets/img/img-programador-desk.png"
+      alt="imagen-hero-inferior"
+      class="img-inferior-hero img-fluid"
+    />
+  </div>
+</section>
+<section class="seccion-oscura sobre-mi" id="sobre-mi">
+  <div class="contenedor">
+    <h2 class="seccion-titulo texto-blanco">Acerca de mí</h2>
+    <p class="seccion-texto">
+      {{persona.descripcion}}
+    </p>
+  </div>
+</section>

@@ -10,7 +10,7 @@ import { NuevoUsuario } from '../models/nuevo-usuario';
 })
 export class AuthService {
 
-  authUrl = `https://portfolio-juan-llamasares.herokuapp.com/auth/`;
+  authUrl = `http://localhost:8080/auth/`;
 
   constructor(private httpClient:HttpClient) { }
 

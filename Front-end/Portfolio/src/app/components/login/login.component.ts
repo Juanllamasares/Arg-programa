@@ -4,6 +4,8 @@ import { LoginUsuario } from 'src/app/models/login-usuario';
 import { AuthService } from 'src/app/service/auth.service';
 import { TokenService } from 'src/app/service/token.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -39,11 +41,12 @@ export class LoginComponent implements OnInit {
       this.tokenService.setUsername(data.nombreUsuario);
       this.tokenService.setAuthorities(data.authorities);
       this.roles = data.authorities;
+      Swal.fire('Validado','Validación exitosa!','success');
       this.router.navigate([''])
     },err=>{
       this.isLogged = false;
       this.isLoginFail = true;
-      this.msjError = err.console.mensaje;
+      Swal.fire('Error login','Credenciales invalidas','error');
     })
   }
 

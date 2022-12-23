@@ -33,7 +33,7 @@ export class ProyectosComponent implements OnInit {
     this.proyectoService.getList().subscribe(data => {this.proyectos = data});
   }
 
-  deleteExp(id? : number){
+  deleteProyect(id? : number){
     if(id != undefined){
       this.proyectoService.delete(id).subscribe(data=>{this.cargarExp()},err=>{alert('No se pudo eliminar el Proyecto')})
     }

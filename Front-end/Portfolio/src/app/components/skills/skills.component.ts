@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class SkillsComponent implements OnInit {
 
-  habilidad : Habilidad[] = [];
+  habilidades : Habilidad[] = [];
 
   constructor(private habilidadService : HabilidadService, private tokenService : TokenService) { }
 
@@ -30,10 +30,10 @@ export class SkillsComponent implements OnInit {
   }
 
   cargarExp() : void{
-    this.habilidadService.getList().subscribe(data => {this.habilidad = data});
+    this.habilidadService.getList().subscribe(data => {this.habilidades = data});
   }
 
-  deleteExp(id? : number){
+  deleteSkill(id? : number){
     if(id != undefined){
       this.habilidadService.delete(id).subscribe(data=>{this.cargarExp()},err=>{alert('No se pudo eliminar la Habilidad')})
     }

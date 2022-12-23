@@ -1,42 +1,48 @@
-<div class="proyect__container">
-  <h2 class="proyect__title">Proyectos:</h2>
-  <br />
-  <img
-    class="img-agregar"
-    src="../../../assets/img/plus.png"
-    alt="agregar"
-    routerLink="/newProyect"
-    *ngIf="isLogged"
-  />
-  
-  <div class="proyect" *ngFor="let proyect of proyectos">
-    <div class="title-proyect-container">
-      <h4>{{proyect.tituloProyect}}:</h4>
-      <img
-        routerLink="/editProyect/{{ proyect.idProy }}"
-        class="img-action"
-        src="../../../assets/img/editar.png" 
-        alt="editar"
-        *ngIf="isLogged"
-      />
-      <img
-        class="img-action"
-        src="../../../assets/img/trash.png"
-        alt="eliminar"
-        *ngIf="isLogged"
-        (click)="deleteExp(proyect.idProy)"
-      />
+<section class="proyectos-recientes seccion-clara d-flex flex-column" id="proyectos">
+  <h2 class="seccion-titulo texto-negro">Mis proyectos   <i class="bi bi-plus-lg" routerLink="/newProyect" *ngIf="isLogged"></i></h2>
+  <h3 class="seccion-descripcion">
+    Estos son algunos de los proyectos que he realizado
+  </h3>
+  <div class="container text-center proyecto-contenedor">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 mb-3" *ngFor="let proyecto of proyectos">
+        <div>
+          <i
+            routerLink="/editProyect/{{proyecto.idProy}}"
+            class="bi bi-pencil-square p-3 mb-2 fs-3"
+            *ngIf="isLogged"
+          ></i>
+          <i
+            (click)="deleteProyect(proyecto.idProy)"
+            class="bi bi-trash3 mb-2 p-3 fs-3"
+            *ngIf="isLogged"
+          ></i>
+        </div>
+        <div class="proyecto">
+          <img src="{{proyecto.imgProyect}}" alt="proyecto 1" />
+          <div class="overlay">
+            <p>{{proyecto.tituloProyect}}</p>
+            <div class="iconos contenedor">
+              <a href="{{proyecto.urlProyecto}}" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              Descripción del proyecto
+            </mat-expansion-panel-header>
+            <br>
+            <strong>{{proyecto.descripcionProyect}}</strong>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
     </div>
-    
-    <img
-        src={{proyect.imgProyect}}
-        alt="img_proyecto"
-        class="img__proyecto"
-    />
-    <br>
-    <a href={{proyect.urlProyecto}} target="_blank">Ir al repo...</a>
-    <p>
-      {{proyect.descripcionProyect}}
-    </p>
   </div>
-</div>
+  <a href="https://github.com/Juanllamasares" target="_blank" rel="noopener noreferrer">
+    <button type="button" class="btn btn-outline-primary">Ver mas Proyectos <i class="bi bi-arrow-right"></i></button>
+  </a>
+</section>
+
+
+

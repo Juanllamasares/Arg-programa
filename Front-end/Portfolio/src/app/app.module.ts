@@ -24,6 +24,10 @@ import { EditSkillComponent } from './components/skills/edit-skill/edit-skill.co
 import { EditProyectComponent } from './components/proyectos/edit-proyect/edit-proyect.component';
 import { NewProyectComponent } from './components/proyectos/new-proyect/new-proyect.component';
 import { FooterComponent } from './components/footer/footer.component';
+
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +55,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatExpansionModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

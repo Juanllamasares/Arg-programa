@@ -1,78 +1,46 @@
-.skills__container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    margin: 60px;
-    background-color: rgba(5, 7, 12, .7);
-    border-radius: 30px;
-    box-shadow: 0 0 10px 10px rgb(85, 17, 17);
-    width: 90vw;
+.skills{
+    padding: 40px 40px 60px 40px;
 }
 
-.title__skills{
-    margin: 20px;
+.skill-titulo{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
-.all__skills{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.img-skill{
+    width: 100px;
+    height: 100px;
+    animation: rotation 8s infinite linear;
 }
 
-img{
-    width: 50px;
-    height: 50px;
+.columna{
+    padding: 40px;
 }
 
-.card__skill{
+.skills .columna{
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+    justify-content: space-evenly;
+    transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -ms-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
 }
 
-h6{
-    margin: 20px;
-}
+@keyframes rotation {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
 
-li{
-    text-align: start;
-    list-style: none;
-}
-
-.img-agregar{
-    width:30px;
-    height: 30px;
-    cursor: pointer;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-.img-agregar:hover{
-    border: 2px solid #fff;
-}
-
-.btn-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.img-action{
-    cursor: pointer;
-}
-
-.img-action:hover{
-    transform: scale(1.3);
-    -webkit-transform: scale(1.3);
-    -moz-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    -o-transform: scale(1.3);
-}
+  
+  
+  
+  
