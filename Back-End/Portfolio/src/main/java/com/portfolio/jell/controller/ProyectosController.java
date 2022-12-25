@@ -6,7 +6,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +22,6 @@ import com.portfolio.jell.service.ProyectoService;
 
 @RestController
 @RequestMapping("/proyects")
-@CrossOrigin(origins = "http://localhost:4200")
 
 public class ProyectosController {
     @Autowired 
@@ -32,33 +30,33 @@ public class ProyectosController {
     @GetMapping("/list")
     public ResponseEntity<List<Proyectos>> listProyects(){
         List<Proyectos> listProyects = proyectServ.getListProyects();
-        return new ResponseEntity(listProyects,HttpStatus.OK);
+        return new ResponseEntity<>(listProyects,HttpStatus.OK);
     }
     
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoProyectos dtoProyect){
         if(StringUtils.isBlank(dtoProyect.getTituloProyect())){
-            return new ResponseEntity(new Mensaje("Titulo del proyecto es OBLIGATORIO"),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Mensaje("Titulo del proyecto es OBLIGATORIO"),HttpStatus.BAD_REQUEST);
         }
         if(proyectServ.existsByTituloProyect(dtoProyect.getTituloProyect())){
-            return new ResponseEntity(new Mensaje("Ese titulo del proyecto ya existe"),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Mensaje("Ese titulo del proyecto ya existe"),HttpStatus.BAD_REQUEST);
         }
         Proyectos proyect = new Proyectos(dtoProyect.getTituloProyect(),dtoProyect.getUrlProyecto(),dtoProyect.getDescripcionProyect(),dtoProyect.getImgProyect());
         proyectServ.saveProyect(proyect);
         
-        return new ResponseEntity(new Mensaje("Proyecto creado con exito"),HttpStatus.OK);
+        return new ResponseEntity<>(new Mensaje("Proyecto creado con exito"),HttpStatus.OK);
     }
     
     @PutMapping("/edit/{id}")
     public ResponseEntity<?> update(@PathVariable("id")int id,@RequestBody DtoProyectos dtoProyect){
         if(!proyectServ.existsById(id)){
-            return new ResponseEntity(new Mensaje("El id no existe"),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Mensaje("El id no existe"),HttpStatus.BAD_REQUEST);
         }
         if(proyectServ.existsByTituloProyect(dtoProyect.getTituloProyect()) && proyectServ.getByTituloProyect(dtoProyect.getTituloProyect()).get().getIdProy()!= id){
-            return new ResponseEntity(new Mensaje("Ese proyecto ya existe"),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Mensaje("Ese proyecto ya existe"),HttpStatus.BAD_REQUEST);
         }
         if(StringUtils.isBlank(dtoProyect.getTituloProyect())){
-            return new ResponseEntity(new Mensaje("El titulo es OBLIGATORIO"),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Mensaje("El titulo es OBLIGATORIO"),HttpStatus.BAD_REQUEST);
         }
         
         Proyectos proyect = proyectServ.getProyect(id).get();
@@ -69,24 +67,24 @@ public class ProyectosController {
         
         proyectServ.saveProyect(proyect);
         
-        return new ResponseEntity(new Mensaje("Proyecto editado correctamente"),HttpStatus.OK);
+        return new ResponseEntity<>(new Mensaje("Proyecto editado correctamente"),HttpStatus.OK);
     }
     
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id")int id){
         if(!proyectServ.existsById(id)){
-            return new ResponseEntity(new Mensaje("El id no existe"),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Mensaje("El id no existe"),HttpStatus.BAD_REQUEST);
         }
         proyectServ.deleteProyect(id);
         
-        return new ResponseEntity(new Mensaje("Proyecto eliminado correctamente"),HttpStatus.OK);
+        return new ResponseEntity<>(new Mensaje("Proyecto eliminado correctamente"),HttpStatus.OK);
     }
     
     @GetMapping("/getProyect/{id}")
-    public ResponseEntity<Proyectos> getById(@PathVariable("id") int id){
+    public ResponseEntity<?> getById(@PathVariable("id") int id){
         if(!proyectServ.existsById(id))
-            return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
         Proyectos proyect = proyectServ.getProyect(id).get();
-        return new ResponseEntity(proyect, HttpStatus.OK);
+        return new ResponseEntity<>(proyect, HttpStatus.OK);
     }
 }

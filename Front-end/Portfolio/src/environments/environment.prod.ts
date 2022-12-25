@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  url: 'https://backend-portfolio-production-429b.up.railway.app',
   firebaseConfig : {
     apiKey: "AIzaSyDok89ziI3rr2W4hlAsrCifl26YSTlNTQc",
     authDomain: "portfolio-e0307.firebaseapp.com",

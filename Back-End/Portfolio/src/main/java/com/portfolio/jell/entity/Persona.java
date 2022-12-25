@@ -5,13 +5,14 @@
 package com.portfolio.jell.entity;
 
 import java.io.Serializable;
-import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,27 +28,21 @@ public class Persona implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
+    @Size(min = 2,max = 30)
+    @Column(length = 500)
     private String nombre;
-    
+    @Size(min = 2,max = 30)
+    @Column(length = 50)
     private String apellido;
-    
+    @Size(min = 2,max = 50)
+    @Column(length = 50)
     private String profesion;
-    
+    @Size(min = 2,max = 500)
+    @Column(length = 500)
     private String descripcion;
-    
+    @Size(min = 2,max = 500)
+    @Column(name = "imagen",length = 500)
     private String img;
-    
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idEdu")
-    private List<Educacion> educacionList;
-    
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idExp")
-    private List<Experiencia> experienciaList;
-    
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idSkill")
-    private List<Habilidades> habilidadesList;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idProy")
-    private List<Proyectos> proyecList;
 
     
 }

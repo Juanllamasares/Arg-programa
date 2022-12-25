@@ -4,6 +4,7 @@
  */
 package com.portfolio.jell.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,9 +25,11 @@ public class Educacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEdu;
-
+    @Column(length = 50)
     private String tituloEdu;
+    @Column(length = 500)
     private String descripcionEdu;
+    @Column(length = 500)
     private String imgEdu;
 
     public Educacion() {

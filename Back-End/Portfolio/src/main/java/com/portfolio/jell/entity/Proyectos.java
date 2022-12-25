@@ -1,5 +1,6 @@
 package com.portfolio.jell.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,9 +16,13 @@ public class Proyectos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idProy;
+    @Column(length = 50)
     private String tituloProyect;
+    @Column(length = 500)
     private String urlProyecto;
+    @Column(length = 500)
     private String descripcionProyect;
+    @Column(length = 500)
     private String imgProyect;
     
     public Proyectos() {
