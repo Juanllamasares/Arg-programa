@@ -20,7 +20,11 @@ public class JellApplication {
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration config = new CorsConfiguration();
+<<<<<<< HEAD
 		config.setAllowedOrigins(Collections.singletonList("https://portfolio-e0307.web.app"));
+=======
+		config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
+>>>>>>> 51025ac0f4529cca87bc140f87c1618113388622
 		config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
 		config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
 		config.setAllowCredentials(true);
