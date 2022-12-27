@@ -1,0 +1,49 @@
+<section class="proyectos-recientes seccion-clara d-flex flex-column" id="proyectos">
+  <h2 class="seccion-titulo texto-negro">Mis proyectos   <i class="bi bi-plus-lg" routerLink="/newProyect" *ngIf="isLogged"></i></h2>
+  <h3 class="seccion-descripcion">
+    Estos son algunos de los proyectos que he realizado
+  </h3>
+  <div class="container text-center proyecto-contenedor">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 mb-3" *ngFor="let proyecto of proyectos">
+        <div>
+          <i
+            routerLink="/editProyect/{{proyecto.idProy}}"
+            class="bi bi-pencil-square p-3 mb-2 fs-3"
+            *ngIf="isLogged"
+          ></i>
+          <i
+            (click)="deleteProyect(proyecto.idProy)"
+            class="bi bi-trash3 mb-2 p-3 fs-3"
+            *ngIf="isLogged"
+          ></i>
+        </div>
+        <div class="proyecto">
+          <img src="{{proyecto.imgProyect}}" alt="proyecto 1" />
+          <div class="overlay">
+            <p>{{proyecto.tituloProyect}}</p>
+            <div class="iconos contenedor">
+              <a href="{{proyecto.urlProyecto}}" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <ngb-accordion #acc="ngbAccordion">
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <span>&#9733; <b>{{proyecto.tituloProyect}}</b> Descripción &#9733;</span>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              {{proyecto.descripcionProyect}}
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+    </div>
+  </div>
+  <a href="https://github.com/Juanllamasares" target="_blank" rel="noopener noreferrer">
+    <button type="button" class="btn btn-outline-primary">Ver mas Proyectos <i class="bi bi-arrow-right"></i></button>
+  </a>
+</section>
+
+
+
