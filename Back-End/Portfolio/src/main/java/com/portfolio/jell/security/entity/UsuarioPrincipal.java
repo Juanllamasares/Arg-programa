@@ -16,7 +16,11 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @author Llamasares
  */
 public class UsuarioPrincipal implements UserDetails{
-    private String nombre;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String nombre;
     private String nombreUsuario;
     private String email;
     private String password;
